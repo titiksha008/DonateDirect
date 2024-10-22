@@ -345,26 +345,32 @@ header nav ul li .donation-btn .btn {
   justify-content: center;
   margin-top: 20px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
-.newsletter input[type="email"] {
+/* .newsletter input[type="email"] {
   padding: 10px;
   border: none;
   border-radius: 5px;
   margin-right: 10px;
   width: 300px;
   max-width: 100%;
-}
+} */
 
 .newsletter button {
   background: #f4b400;
   color: #333;
+  text-align: center;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
   margin-top: 10px;
+  display: flex; /* Using flexbox for horizontal alignment */
+  align-items: center; /* Aligns icon and text vertically */
+  justify-content: center; /* Aligns icon and text horizontally */
+
 }
 
 .newsletter button:hover {
@@ -373,6 +379,9 @@ header nav ul li .donation-btn .btn {
 
 ul {
   list-style: none;
+}
+.newsletter button i {
+  margin-right: 8px; /* Adds some space between icon and text */
 }
 
 /* Social icons */
@@ -406,15 +415,7 @@ ul {
   transform: translateY(-2px);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
-</style>
-</head>
-<body>
-  <div class="social-icons">
-    <a href="https://www.instagram.com/" target="_blank">
-      <div class="icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-          <path d="M8 0C5.359 0 3 2.359 3 5.384v4.468c0 2.055 1.359 3.846 3 3.846h4c1.641 0 3-1.791 3-3.846V5.384c0-2.025-1.359-3
-/* Image gallery */
+
 .imagecontainer {
   margin: 0;
   padding: 0;
