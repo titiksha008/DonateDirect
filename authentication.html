@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(white, #5FA88D);
+            height: 100vh;
+            margin: 0;
+        }
+        #signIn {
+            background-color: rgb(218, 228, 225);
+            width: 500px;
+            padding: 20px;
+            margin-top: 100px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #signIn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        input {
+            padding: 10px;
+            border-radius: 10px;
+            margin-left: 30px;
+            width: 80%;
+        }
+        button {
+            background-color: #5FA88D;
+            padding: 10px;
+            border-radius: 10px;
+            width: 90px;
+        }
+        button:hover {
+            
+            background-color: #76b89d;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div id="signIn">
+            <h1>Register</h1>
+
+            <h3>Username</h3>
+            <input id="user" placeholder="Enter your username"><br><br>
+
+            <h3>Password</h3>
+            <input type="password" id="pass" placeholder="Enter your password"><br><br>
+
+            <h3>Confirm Password</h3>
+            <input type="password" id="conf" placeholder="Please confirm your password"><br><br>
+
+            <button onclick="register()"><b>Submit</b></button>
+        </div>
+    </center>
+
+    <script>
+        let username = localStorage.getItem('usn') ? JSON.parse(localStorage.getItem('usn')) : [];
+        let password = localStorage.getItem('pwd') ? JSON.parse(localStorage.getItem('pwd')) : [];
+
+        function register() {
+            let user = document.querySelector('#user').value;
+            let pass = document.querySelector('#pass').value;
+            let conf = document.querySelector('#conf').value;
+
+            if (!user || !pass || !conf) {
+                alert("Please enter all details.");
+                return;
+            }
+
+           
+            if (pass === conf) {
+                username.push(user);
+                password.push(pass);
+                localStorage.setItem('usn', JSON.stringify(username));
+                localStorage.setItem('pwd', JSON.stringify(password));
+
+                alert("User registered successfully!");
+               
+                document.querySelector('#user').value = '';
+                document.querySelector('#pass').value = '';
+                document.querySelector('#conf').value = '';
+            } else {
+                alert("Passwords do not match. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
