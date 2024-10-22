@@ -6,12 +6,13 @@
     <title>Document</title>
     <style>
         body {
-            background: linear-gradient(white, #5FA88D);
+            background: linear-gradient(to bottom, white, #f4b400); 
             height: 100vh;
             margin: 0;
         }
         #signIn {
-            background-color: rgb(218, 228, 225);
+            background-color:none ;
+            border: 2px solid black; 
             width: 500px;
             padding: 20px;
             margin-top: 100px;
@@ -23,28 +24,39 @@
             transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+
+        h3 {
+            text-align: left; 
+            margin: 10px 0; 
+      		
+        }
+
         input {
             padding: 10px;
             border-radius: 10px;
-            margin-left: 30px;
+            margin-left: 0; 
             width: 80%;
+            border: 1px solid #ccc; 
         }
+        
         button {
-            background-color: #5FA88D;
+            background-color: black;
             padding: 10px;
             border-radius: 10px;
             width: 90px;
+            color: white; 
+            border: none; 
+            cursor: pointer; 
         }
         button:hover {
-            
-            background-color: #76b89d;
+            background-color: gray; 
         }
     </style>
 </head>
 <body>
     <center>
         <div id="signIn">
-            <h1>Register</h1>
+            <h1>Sign Up</h1>
 
             <h3>Username</h3>
             <input id="user" placeholder="Enter your username"><br><br>
@@ -73,7 +85,6 @@
                 return;
             }
 
-           
             if (pass === conf) {
                 username.push(user);
                 password.push(pass);
