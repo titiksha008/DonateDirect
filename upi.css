@@ -1,0 +1,338 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+  
+  .modal {
+    width: 90%;
+    max-width: 450px;
+    background: #ffffff;
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #fff;
+  }
+  
+  /* Image Styles */
+  #img {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #upiimg {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+  
+  /* Form Styles */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Payment Options */
+  .payment--options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 10px;
+  }
+  
+  .payment--options button {
+    height: 55px;
+    background: #F2F2F2;
+    border-radius: 11px;
+    border: 0;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+  }
+  
+  .payment--options button:hover {
+    background: #e0e0e0;
+  }
+  
+  .payment--options button svg {
+    height: 18px;
+  }
+  
+  .payment--options button:last-child svg {
+    height: 22px;
+  }
+  
+  /* Separator Styles */
+  .separator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #8B8E98;
+    margin: 20px 0;
+    font-weight: 600;
+    font-size: 11px;
+  }
+  
+  .separator .line {
+    flex: 1;
+    height: 1px;
+    background-color: #e8e8e8;
+  }
+  
+  /* Credit Card Info Form */
+  .credit-card-info--form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input_container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .split {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+  }
+  
+  .input_label {
+    font-size: 12px;
+    color: #8B8E98;
+    font-weight: 600;
+  }
+  
+  .input_field {
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 9px;
+    background-color: #F2F2F2;
+    border: 1px solid #e5e5e5;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .input_field:focus {
+    border-color: #242424;
+    box-shadow: 0 0 0 2px #242424;
+    background-color: #fff;
+  }
+  
+  /* Button Styles */
+  .purchase--btn {
+    height: 70px;
+    background: #F2F2F2;
+    border-radius: 11px;
+    border: 0;
+    outline: none;
+    color: #242424;
+    font-size: 13px;
+    font-weight: 700;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  
+  .purchase--btn:hover {
+    background: #e0e0e0;
+    box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Reset input number styles */
+  .input_field::-webkit-outer-spin-button,
+  .input_field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .input_field[type=number] {
+    -moz-appearance: textfield;
+  }
+  
+  /* Container Styles */
+  .container {
+    background-color: #ffffff;
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    height: 70px;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container:hover {
+    transform: scale(1.05);
+  }
+  
+  .left-side {
+    background-color: #5de2a3;
+    width: 130px;
+    height: 70px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .right-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .right-side:hover {
+    background-color: #f9f7f9;
+  }
+  
+  /* Arrow Icon Styles */
+  .arrow {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+  }
+  
+  /* Card Styles */
+  .card {
+    width: 70px;
+    height: 46px;
+    background-color: #c7ffbc;
+    border-radius: 6px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 9px 9px 9px -2px rgba(77, 200, 143, 0.72);
+  }
+  
+  .card-line {
+    width: 65px;
+    height: 13px;
+    background-color: #80ea69;
+    border-radius: 2px;
+    margin-top: 7px;
+  }
+  
+  /* Post Styles */
+  .post {
+    width: 63px;
+    height: 75px;
+    background-color: #dddde0;
+    position: absolute;
+    bottom: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .post-line {
+    width: 47px;
+    height: 9px;
+    background-color: #545354;
+    position: absolute;
+    border-radius: 0 0 3px 3px;
+    right: 8px;
+    top: 8px;
+  }
+  
+  .post-line:before {
+    content: "";
+    position: absolute;
+    width: 47px;
+    height: 9px;
+    background-color: #757375;
+    top: -8px;
+  }
+  
+  .screen {
+    width: 47px;
+    height: 23px;
+    background-color: #ffffff;
+    position: absolute;
+    top: 22px;
+    right: 8px;
+    border-radius: 3px;
+  }
+  
+  .numbers {
+    width: 12px;
+    height: 12px;
+    background-color: #838183;
+    border-radius: 2px;
+    position: absolute;
+    transform: rotate(90deg);
+    left: 25px;
+    top: 52px;
+  }
+  
+  .numbers-line2 {
+    width: 12px;
+    height: 12px;
+    background-color: #aaa9ab;
+    border-radius: 2px;
+    position: absolute;
+    transform: rotate(90deg);
+    left: 25px;
+    top: 68px;
+  }
+  
+  /* Animations */
+  @keyframes slide-top {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-70px) rotate(90deg);
+    }
+    100% {
+        transform: translateY(-8px) rotate(90deg);
+    }
+  }
+  
+  @keyframes slide-post {
+    50% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-70px);
+    }
+  }
+  
+  @keyframes fade-in-fwd {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Styles */
+  @media only screen and (max-width: 480px) {
+    .payment--options {
+        grid-template-columns: 1fr;
+    }
+  
+    .split {
+        grid-template-columns: 1fr;
+    }
+  
+    .container {
+        max-width: 100%;
+    }
+  }

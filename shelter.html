@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,26 @@
     <title>DonateDirect</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="shelter.css">
-</head>
-<body>
-   
-        
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
 
-	<header class="hero-section" >
-        
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero-section">
         <div class="container">
             <h1>DonateDirect</h1>
-            <nav >
+            <nav>
                 <ul class="DonateDirectNav">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">About Us</a></li>
                     <li class="dropdown">
                         <a href="#">Donation</a>
                         <div class="dropdown-content">
@@ -32,71 +40,121 @@
                     </li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Contact Us</a></li>
-    
-                    <li><div class="donation-btn">
-                      <button class="btn">Donation</button>
-                    </div>
+                    <li>
+                        <div class="donation-btn">
+                            <button class="btn">Donation</button>
+                        </div>
                     </li>
-                    <!-- <button class="donate-now"><a href="donate.html">Donate Now</a></button> -->
                 </ul>
             </nav>
         </div>
-    
-    <!-- <section class="hero">
-        <div class="container">
-            <!-- <img src="7.jpg" alt=""> -->
-            <!-- <h2 class="containertext" style="text-align: center;">Your generosity today can transform a child's tomorrow. <br> Donate now and be a part of their journey to a better life. -->
-                 <!-- Your support can change their story. Give today</h2> -->
-                <!-- <h2 class="containertext" style="text-align: left;">Support children in need.</h2>  -->
-            <!-- <p style="text-align: left; padding: auto;">Be the reason someone smiles today</p> -->
-            <!-- <a href="#" class="donate-btn">Donate Now</a> -->
-            
-        </div>
-    
-    <!-- </section>  -->
-    <!-- <button class="donate-now">Donate Now</button> -->
- 
-    <section id="hero">
-        <img style="height: 800px; width: 1500px;" src="https://www.squareyards.com/blog/wp-content/uploads/2023/04/shelter-house.jpg" alt="Homeless Hero">
-        <div class="hero-text">
-            <h1>People in need, need you.</h1>
-            <p>From emergency homeless shelters to long-term housing assistance, The Salvation Army provides a wide array of services to address homelessness in communities across America.</p>
-        </div>
-    </section>
 
-    <section id="call-to-action">
-        <h2>Where Compassion Meets Comfort</h2>
-        <button id="help-btn">I need Help</button>
-    </section>
-
-    <section id="info" class="hidden">
-        <h2>Homelessness can happen to anyone.</h2>
-        <p>As of 2023, the percentage of people living in poverty in India was approximately 7.8%. Housing insecurity is not limited to a certain “type” of person. It can happen to virtually anyone at any time.</p>
-        <input type="text" id="zip-code" placeholder="Enter ZIP Code here">
-        <button>Find a Shelter Near Me</button>
-    </section>
-
-    <section id="services">
-        <h2>DonateDirect provides critical support and resources to those affected by poverty, crisis, and inequality every day through:</h2>
-        <div class="services-content">
-            <div class="service">
-                <i class="fa-duotone fa-solid fa-bed-front"></i>
-                <h4>Homeless Shelter</h4>
-                <p>The number of sheltered individuals with chronic patterns of homelessness increased by 20% between 2020 and 2021. This is a challenge that we are tackling with full heart and compassion. For those with no safe place to go or in need of emergency shelter, local Salvation Army shelters provide a warm, secure place for homeless men, women, and children to stay.  
-
-                    At The Salvation Army, our doors are open every day — and night — of the year. Through our emergency housing facilities, homeless shelters, transitional living centers, group homes, and family shelters, we provide more than 8 million nights of lodging annually.  
-                    
-                    In some cities where we do not currently operate homeless shelters, we help provide financial assistance to cover emergency overnight housing costs or refer those facing food insecurity and those at risk of homelessness to trusted partner programs with emergency shelter services. </p>
+        <section id="hero">
+            <img style="height: 800px; width: 1500px;" src="https://www.squareyards.com/blog/wp-content/uploads/2023/04/shelter-house.jpg" alt="Homeless Hero">
+            <div class="hero-text">
+                <h1>People in need, need you.</h1>
+                <p>From emergency homeless shelters to long-term housing assistance, The Salvation Army provides a wide array of services to address homelessness.</p>
             </div>
-            <div class="service">
-                <h4>Transitional Housing</h4>
-                <p>Our transitional housing programs are designed to transition unhoused people into more permanent living situations. In many programs, The Salvation Army provides case management, child care, job skills training, substance abuse counseling, job placement, and referral to resources when needed. 
+        </section>
 
-                    Often our facilities will partner with other local agencies to serve a particular community’s need. For instance, The Salvation Army White Mountain Outpost has teamed up with the White Mountain Coalition Against Homelessness to open and run a brand-new transitional housing program in Lakeside, Arizona. In addition to these services, our programs also offer life skills workshops and financial literacy training to help individuals build a foundation for long-term stability. By addressing both immediate needs and underlying challenges, we empower participants to regain independence and successfully reintegrate into society.</p>
+        <section id="call-to-action">
+            <h2>Where Compassion Meets Comfort</h2>
+            <button id="help-btn">I need Help</button>
+        </section>
+
+        <section id="info" class="hidden">
+            <h2>Homelessness can happen to anyone.</h2>
+            <p>As of 2023, the percentage of people living in poverty in India was approximately 7.8%. It can happen to virtually anyone at any time.</p>
+            <input type="text" id="zip-code" placeholder="Enter ZIP Code here">
+            <button id="find-shelter-btn">Find a Shelter Near Me</button>
+            <div id="map"></div>
+        </section>
+
+        <section id="services">
+            <h2>DonateDirect provides critical support and resources to those affected by poverty, crisis, and inequality every day through:</h2>
+            <div class="services-content">
+                <div class="service">
+                    <i class="fa-duotone fa-solid fa-bed-front"></i>
+                    <h4>Homeless Shelter</h4>
+                    <p>The number of sheltered individuals with chronic patterns of homelessness increased by 20% between 2020 and 2021. This is a challenge that we are tackling with full heart and compassion. For those with no safe place to go or in need of emergency shelter, local Salvation Army shelters provide a warm, secure place for homeless men, women, and children to stay.
+
+                        At The Salvation Army, our doors are open every day — and night — of the year. Through our emergency housing facilities, homeless shelters, transitional living centers, group homes, and family shelters, we provide more than 8 million nights of lodging annually.
+
+                        In some cities where we do not currently operate homeless shelters, we help provide financial assistance to cover emergency overnight housing costs or refer those facing food insecurity and those at risk of homelessness to trusted partner programs with emergency shelter services.</p>
+                </div>
+                <div class="service">
+                    <h4>Transitional Housing</h4>
+                    <p>Our transitional housing programs are designed to transition unhoused people into more permanent living situations. In many programs, The Salvation Army provides case management, child care, job skills training, substance abuse counseling, job placement, and referral to resources when needed.
+
+                        Often our facilities will partner with other local agencies to serve a particular community’s need. For instance, The Salvation Army White Mountain Outpost has teamed up with the White Mountain Coalition Against Homelessness to open and run a brand-new transitional housing program in Lakeside, Arizona. In addition to these services, our programs also offer life skills workshops and financial literacy training to help individuals
+                        build a foundation for long-term stability. By addressing both immediate needs and underlying challenges, we empower participants to regain independence and successfully reintegrate into society.</p>
+                </div>
             </div>
-        </div>
-    </section>   </header>
+        </section>
+    </header>
 
-    <script src="shelter.js"></script>
+    <script>
+        const helpBtn = document.getElementById("help-btn");
+        const infoSection = document.getElementById("info");
+        const findShelterBtn = document.getElementById("find-shelter-btn");
+        const mapContainer = document.getElementById("map");
+        let map;
+
+        // Toggle the info section when the "I need Help" button is clicked
+        helpBtn.addEventListener("click", function () {
+            infoSection.style.display = "block";
+            infoSection.style.width = "60%";
+            infoSection.style.padding = "30px";
+            infoSection.style.backgroundColor = "#EFF1F0";
+            infoSection.style.position = "relative";
+            infoSection.style.top = "13%";
+            infoSection.style.left = "50%";
+            infoSection.style.transform = "translate(-50%, -50%)";
+            infoSection.style.textAlign = "center";
+            infoSection.scrollIntoView({ behavior: "smooth" });
+
+            // Initialize the map
+            initMap();
+        });
+
+        // Initialize OpenStreetMap with Leaflet
+        function initMap() {
+            map = L.map('map').setView([28.7041, 77.1025], 12); // Default: Delhi, India
+
+            // Load OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Example shelter markers (replace with real data as needed)
+            const shelters = [
+                { name: "Shelter 1", lat: 28.7041, lon: 77.1025 },
+                { name: "Shelter 2", lat: 28.6448, lon: 77.2167 },
+                { name: "Shelter 3", lat: 28.5355, lon: 77.3910 }
+            ];
+
+            // Add markers to the map
+            shelters.forEach(shelter => {
+                L.marker([shelter.lat, shelter.lon])
+                    .addTo(map)
+                    .bindPopup(`<b>${shelter.name}</b><br>Coordinates: ${shelter.lat}, ${shelter.lon}`);
+            });
+
+        }
+
+        // Find nearby shelters based on ZIP code
+        findShelterBtn.addEventListener("click", function () {
+            const zipCode = document.getElementById("zip-code").value;
+
+            if (zipCode) {
+                alert(`Searching for shelters near ZIP Code: ${zipCode}`);
+                // Here, you can replace with actual geocoding logic to get the coordinates from the ZIP code
+                map.setView([28.6448, 77.2167], 14); // Example: Zoom to New Delhi coordinates
+            } else {
+                alert('Please enter a ZIP Code.');
+            }
+        });
+    </script>
 </body>
+
 </html>
