@@ -103,7 +103,58 @@
         </div>
 <!-- </div> -->
 
-    
+<script>
+  document.querySelector('.form').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form from reloading the page
+
+      // Collect data from input fields
+      const formData = {
+          name: document.querySelector('#name').value,
+          email: document.querySelector('#email').value,
+          number: document.querySelector('#number').value,
+          address: document.querySelector('#address').value,
+          dob: document.querySelector('#dob').value,
+          quantity: document.querySelector('#quantity').value,
+          type: document.querySelector('#type').value,
+          expiry: document.querySelector('#expiry').value,
+      };
+
+      // Retrieve existing data from local storage or initialize an empty array
+      let existingData = JSON.parse(localStorage.getItem('donationFormData')) || [];
+
+      if (!Array.isArray(existingData)) {
+          console.warn('existingData is not an array, resetting to an empty array.');
+          existingData = [];
+      }
+
+      // Add the new form data to the array
+      existingData.push(formData);
+
+      // Store the updated array in local storage
+      localStorage.setItem('donationFormData', JSON.stringify(existingData));
+
+      alert('Your data has been saved successfully!');
+      document.querySelector('.form').reset(); // Clear form inputs
+  });
+
+  // Retrieve and populate form data if available
+  window.addEventListener('load', function () {
+      const savedData = JSON.parse(localStorage.getItem('donationFormData')) || [];
+
+      if (savedData.length > 0) {
+          const lastEntry = savedData[savedData.length - 1];
+
+          document.querySelector('#name').value = lastEntry.name;
+          document.querySelector('#email').value = lastEntry.email;
+          document.querySelector('#number').value = lastEntry.number;
+          document.querySelector('#address').value = lastEntry.address;
+          document.querySelector('#dob').value = lastEntry.dob;
+          document.querySelector('#quantity').value = lastEntry.quantity;
+          document.querySelector('#type').value = lastEntry.type;
+          document.querySelector('#expiry').value = lastEntry.expiry;
+      }
+  });
+</script>
 
 <script src="education.js"></script>
       
