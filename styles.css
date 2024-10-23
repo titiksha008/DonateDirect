@@ -144,12 +144,14 @@ header nav ul li .donation-btn .btn {
 
 /* Global btn styles */
 .btn {
+  color: white;
+  /* font-size: large; */
   position: relative;
   display: inline-block;
   cursor: pointer;
   outline: none;
   vertical-align: middle;
-  text-decoration: none;
+  text-decoration:none;
   background: transparent;
   font-size: 15px;
   border: none;
@@ -163,7 +165,7 @@ header nav ul li .donation-btn .btn {
   text-transform: uppercase;
   text-indent: 50px;
   transition: 300ms;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .btn::before {
@@ -215,6 +217,7 @@ header nav ul li .donation-btn .btn {
   margin: 0;
   margin-top: 0;
   padding-bottom: 0%;
+  color: white;
 }
 
 .hero {
