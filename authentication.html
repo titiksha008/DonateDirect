@@ -28,7 +28,6 @@
         h3 {
             text-align: left; 
             margin: 10px 0; 
-      		
         }
 
         input {
@@ -76,30 +75,37 @@
         let password = localStorage.getItem('pwd') ? JSON.parse(localStorage.getItem('pwd')) : [];
 
         function register() {
-            let user = document.querySelector('#user').value;
-            let pass = document.querySelector('#pass').value;
-            let conf = document.querySelector('#conf').value;
+    let user = document.querySelector('#user').value;
+    let pass = document.querySelector('#pass').value;
+    let conf = document.querySelector('#conf').value;
 
-            if (!user || !pass || !conf) {
-                alert("Please enter all details.");
-                return;
-            }
+    if (!user || !pass || !conf) {
+        alert("Please enter all details.");
+        return;
+    }
 
-            if (pass === conf) {
-                username.push(user);
-                password.push(pass);
-                localStorage.setItem('usn', JSON.stringify(username));
-                localStorage.setItem('pwd', JSON.stringify(password));
+    if (pass === conf) {
+        username.push(user);
+        password.push(pass);
+        localStorage.setItem('usn', JSON.stringify(username));
+        localStorage.setItem('pwd', JSON.stringify(password));
 
-                alert("User registered successfully!");
-               
-                document.querySelector('#user').value = '';
-                document.querySelector('#pass').value = '';
-                document.querySelector('#conf').value = '';
-            } else {
-                alert("Passwords do not match. Please try again.");
-            }
-        }
+        alert("User registered successfully!");
+
+        // Clear input fields
+        document.querySelector('#user').value = '';
+        document.querySelector('#pass').value = '';
+        document.querySelector('#conf').value = '';
+
+        // Debugging log
+        console.log("Redirecting to index.html");
+        window.location.href = "index.html";
+    } else {
+        alert("Passwords do not match. Please try again.");
+    }
+}
+
+
     </script>
 </body>
 </html>
